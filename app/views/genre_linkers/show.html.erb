@@ -1,0 +1,20 @@
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Genre:</strong></td>
+                <td <%= @genre_linker.genre %></td>
+              </tr>
+              <tr>
+                <td><strong>Description:</strong></td>
+                <td> <%= @genre_linker.description %></td>
+              </tr>
+              <tr>
+                <td><strong>User:</strong></td>
+                 <td><%= @genre_linker.user.email %></td>
+              </tr>
+            </tbody>
+          </table>
+
+<%= link_to 'Edit', edit_genre_linker_path(@genre_linker) %> |
+<%= link_to 'Back', genre_linkers_path %>

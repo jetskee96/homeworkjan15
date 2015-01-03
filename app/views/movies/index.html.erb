@@ -1,0 +1,24 @@
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Explore Movies In A New Way</h1>
+    <p>Hashtag hoodie mumblecore selfies. Authentic keffiyeh leggings Kickstarter, narwhal jean shorts XOXO Vice Austin cardigan. Organic drinking vinegar freegan pickled.</p>
+    <p><%= link_to "Sign Up To Write A Review", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
+
+<div class="row">
+  <% @movies.each do |movie| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+         <%= link_to (image_tag movie.poster.url(:medium), class: 'image'), movie %>
+         <td><strong><%= movie.title %></strong></td>
+      </div>
+    </div>
+    
+  <% end %>
+</div>
+
+<%= link_to 'New Movie', new_movie_path %>
+
+
+

@@ -1,0 +1,63 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+         <%= image_tag @movie.poster.url(:medium) %>
+
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Title:</strong></td>
+                <td><%= @movie.title %></td>
+              </tr>
+              <tr>
+                <td><strong>Description:</strong></td>
+                <td><%= @movie.description %></td>
+              </tr>
+              <tr>
+                <td><strong>Movie length:</strong></td>
+                <td><%= @movie.movie_length %></td>
+              </tr>
+              <tr>
+                <td><strong>User:</strong></td>
+                <td><%= @movie.user.email %></td>
+              </tr>
+                  <tr>
+             
+                <td><%= link_to "Add new Genre", new_movie_genre_linker_path(@movie) %></td>
+              </tr>
+               
+               <tr>
+                 
+
+               </tr>
+            </tbody>
+          </table>
+           
+        </div>
+      </div>
+
+       <% if @genre_linkers.blank? %>
+          <h3>No Linkers just yet, would you like to add the first!</h3>
+       <%= link_to "add new linker", new_movie_genre_linker_path(@movie), class: "btn btn-danger" %>
+        <% else %>
+           <div class="row">
+       <div class="container-fluid">
+       <div class="col-md-2 col-md-offset-2">
+     <% @genre_linkers.each do |genre_linker| %>
+         <strong>Genre:</strong>
+          <%= genre_linker.genre %>
+
+          <br />
+
+   
+          <% end %>
+        <% end %>
+         </div>
+       </div>
+       </div>
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+
+
