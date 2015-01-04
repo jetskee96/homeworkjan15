@@ -49,6 +49,9 @@
      <% @genre_linkers.each do |genre_linker| %>
          <strong>Genre:</strong>
           <%= genre_linker.genre %>
+          <%= pluralize genre_linker.reputation_for(:votes).to_i, "vote" %>
+          <%= link_to "up", vote_movie_genre_linker_path(@movie, genre_linker,  type: "up"), method: "post" %>
+<!--   <%= link_to "down", vote_movie_genre_linker_path(@movie, @genre_linkers, type: "down"), method: "post" %> -->
 
           <br />
 
