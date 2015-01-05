@@ -1,0 +1,27 @@
+<h1>Listing common_linkers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cliche</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @common_linkers.each do |common_linker| %>
+      <tr>
+        <td><%= common_linker.cliche %></td>
+        <td><%= common_linker.description %></td>
+        <td><%= link_to 'Show', common_linker %></td>
+        <td><%= link_to 'Edit', edit_common_linker_path(common_linker) %></td>
+        <td><%= link_to 'Destroy', common_linker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Common linker', new_common_linker_path %>

@@ -1,5 +1,5 @@
 class GenreLinkersController < ApplicationController
-   before_action :set_genre_linker, only: [:show, :edit, :update, :destroy, :votes]
+  before_action :set_genre_linker, only: [:show, :edit, :update, :destroy, :votes]
   before_action :set_movie
   before_action :authenticate_user!
   respond_to :html
@@ -10,13 +10,13 @@ class GenreLinkersController < ApplicationController
   end
 
   def show
-
+    @genre_linker = GenreLinker.find(params[:id])
   end
 
    def vote
       value = params[:type] == "up" ? 1 : -1
       @genre_linker = GenreLinker.find(params[:id])
-      @genre_linker.add_evaluation(:votes, value, current_user)
+     @genre_linker.add_or_update_evaluation(:votes, value, current_user)
       redirect_to :back, notice: "thanks for the vote"
    end
 

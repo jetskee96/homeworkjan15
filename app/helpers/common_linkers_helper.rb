@@ -1,0 +1,2 @@
+module CommonLinkersHelper
+end
