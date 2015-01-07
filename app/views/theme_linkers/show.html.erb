@@ -2,8 +2,12 @@
           <table class="table">
             <tbody>
               <tr>
+                <td><strong>Movie Title:</strong></td>
+                <td> <%= link_to @movie.title, movie_path(@movie) %></td>
+              </tr>  
+              <tr>
                 <td><strong>Theme:</strong></td>
-                <td <%= @theme_linker.theme %></td>
+                <td> <%= @theme_linker.theme %></td>
               </tr>
               <tr>
                 <td><strong>Description:</strong></td>
@@ -18,10 +22,9 @@
                 <td><strong>Number of votes</strong></td>
                      <td> <%= pluralize @theme_linker.reputation_for(:votes).to_i, "votes" %></td>
               </tr>
-    
+            
               
               
               
             </tbody>
           </table>
-

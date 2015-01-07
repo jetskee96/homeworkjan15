@@ -2,8 +2,12 @@
           <table class="table">
             <tbody>
               <tr>
+                <td><strong>Movie Title:</strong></td>
+                  <td> <%= link_to @movie.title, movie_path(@movie) %></td>
+              </tr>
+              <tr>
                 <td><strong>Genre:</strong></td>
-                <td <%= @genre_linker.genre %></td>
+                <td> <%= @genre_linker.genre %></td>
               </tr>
               <tr>
                 <td><strong>Description:</strong></td>

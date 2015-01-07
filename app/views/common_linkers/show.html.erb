@@ -1,9 +1,13 @@
         <div class="table-responsive">
           <table class="table">
             <tbody>
+               <tr>
+                <td><strong>Movie Title:</strong></td>
+                  <td> <%= link_to @movie.title, movie_path(@movie) %></td>
+              </tr>
               <tr>
                 <td><strong>Cliche:</strong></td>
-                <td <%= @common_linker.cliche %></td>
+                <td> <%= @common_linker.cliche %></td>
               </tr>
               <tr>
                 <td><strong>Description:</strong></td>

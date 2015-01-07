@@ -1,4 +1,4 @@
-class AddUserItToGenreLinkers < ActiveRecord::Migration
+class AddUserIdToGenreLinkers < ActiveRecord::Migration
   def change
     add_column :genre_linkers, :user_id, :integer
   end

@@ -1,7 +1,7 @@
 class GenreLinkersController < ApplicationController
   before_action :set_genre_linker, only: [:show, :edit, :update, :destroy, :votes]
   before_action :set_movie
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   respond_to :html
 
   def index

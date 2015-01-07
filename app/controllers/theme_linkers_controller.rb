@@ -1,7 +1,7 @@
 class ThemeLinkersController < ApplicationController
   before_action :set_theme_linker, only: [:show, :edit, :update, :destroy, :votes]
   before_action :set_movie
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   respond_to :html
 
   def index
@@ -31,10 +31,10 @@ class ThemeLinkersController < ApplicationController
 
   def create
     @theme_linker = ThemeLinker.new(theme_linker_params)
-    @theme_linker.user_id = current_user.id
-    @theme_linker.movie_id = @movie.id
+     @theme_linker.user_id = current_user.id
+     @theme_linker.movie_id = @movie.id
 
-    if @theme_linker.save
+     if @theme_linker.save
         redirect_to @movie
     else
       render 'new'
@@ -52,15 +52,15 @@ class ThemeLinkersController < ApplicationController
   end
 
   private
-  def set_theme_linker
-    @theme_linker = ThemeLinker.find(params[:id])
+    def set_theme_linker
+      @theme_linker = ThemeLinker.find(params[:id])
     end
    
    def set_movie
       @movie = Movie.find(params[:movie_id])
    end
 
-  def theme_linker_params
-    params.require(:theme_linker).permit(:genre, :description)
+    def theme_linker_params
+      params.require(:theme_linker).permit(:theme, :description)
     end
 end
