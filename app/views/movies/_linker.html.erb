@@ -1,74 +1,96 @@
-   <div class="row">
-       <div class="container">
-       <div class="col-md-4 col-md-offset-2">
+<div class="row">
+    <div class="container">
+        <div class="col-md-4 col-md-offset-2">
 
-<h2>Plot Linkers</h2>
+            <h2>Plot Linkers</h2>
 
-<% if @genre_linkers.blank? %>
-          <h3>No Linkers just yet, would you like to add the first!</h3>
-<%= link_to "add new genre", new_movie_genre_linker_path(@movie), class: "btn btn-danger" %>
-        <% else %>
-        
-    <% @genre_linkers.each do |genre_linker| %>
-        <p class="bg-warning"> <strong><%= pluralize genre_linker.reputation_for(:votes).to_i, "" %></strong>
-              <strong>Genre:</strong>
-          
-         
-           <%= link_to "up", vote_movie_genre_linker_path(@movie, genre_linker,  type: "up"), method: "post" %>
-      <strong> <%= link_to genre_linker.genre, movie_genre_linker_path(@movie, genre_linker), class: "btn btn-warning" %></strong>
-          <%= link_to "down", vote_movie_genre_linker_path(@movie, genre_linker, type: "down"), method: "post" %>
-        
+            <% if @genre_linkers.blank? %>
+            <h3>No Linkers just yet, would you like to add the first!</h3>
+            <%= link_to "add new genre", new_movie_genre_linker_path(@movie), class: "btn btn-danger" %>
+            <% else %>
 
-         </p>
-          <br />
+            <% @genre_linkers.each do |genre_linker| %>
+            <p class="bg-warning"> <strong><%= pluralize genre_linker.reputation_for(:votes).to_i, "" %></strong>
+                <strong>Genre:</strong>
 
-   
-          <% end %>
-        <% end %>
-         
-         <% if @theme_linkers.blank? %>
-          <h3>No theme's' just yet, would you like to add the first!</h3>
-         <%= link_to "add new theme", new_movie_theme_linker_path(@movie), class: "btn btn-danger" %>
-        <% else %>
-  
-         <% @theme_linkers.each do |theme_linker| %>
-          <p class="bg-info"> <strong><%= pluralize theme_linker.reputation_for(:votes).to_i, "" %></strong>
-            <strong>Theme:</strong>
-            
-            
-           <%= link_to "up", vote_movie_theme_linker_path(@movie, theme_linker,  type: "up"), method: "post" %>
-     <strong><%= link_to theme_linker.theme, movie_theme_linker_path(@movie, theme_linker), class: "btn btn-primary" %></strong>
-           <%= link_to "down", vote_movie_theme_linker_path(@movie, theme_linker, type: "down"), method: "post" %>
-        
 
-         </p>
-          <br />
+                <%= link_to "up", vote_movie_genre_linker_path(@movie, genre_linker,  type: "up"), method: "post" %>
+                <strong> <%= link_to genre_linker.genre, movie_genre_linker_path(@movie, genre_linker), class: "btn btn-warning" %></strong>
+                <%= link_to "down", vote_movie_genre_linker_path(@movie, genre_linker, type: "down"), method: "post" %>
 
-   
-          <% end %>
-        <% end %>
-  
-         
-              <% if @common_linkers.blank? %>
-          <h3>No cliche's listed yet</h3>
-         <%= link_to "add new cliche", new_movie_common_linker_path(@movie), class: "btn btn-danger" %>
-        <% else %>
 
-         <% @common_linkers.each do |common_linker| %>
-         <p class="bg-success"><strong><%= pluralize common_linker.reputation_for(:votes).to_i, "" %></strong>
-          <strong>Cliche:</strong>
-          
-        
-       <%= link_to "up", vote_movie_common_linker_path(@movie, common_linker,  type: "up"), method: "post" %>
-       <strong> <%= link_to common_linker.cliche, movie_common_linker_path(@movie, common_linker), class: "btn btn-success" %></strong>
-       <%= link_to "down", vote_movie_common_linker_path(@movie, common_linker, type: "down"), method: "post" %>
-         </p>
-          <br />
+            </p>
+            <br />
 
-   
-          <% end %>
-        <% end %>
-             </div>
-       </div>
-       </div>
 
+            <% end %>
+            <% end %>
+
+            <% if @theme_linkers.blank? %>
+            <h3>No theme's' just yet, would you like to add the first!</h3>
+            <%= link_to "add new theme", new_movie_theme_linker_path(@movie), class: "btn btn-danger" %>
+            <% else %>
+
+            <% @theme_linkers.each do |theme_linker| %>
+            <p class="bg-info"> <strong><%= pluralize theme_linker.reputation_for(:votes).to_i, "" %></strong>
+                <strong>Theme:</strong>
+
+
+                <%= link_to "up", vote_movie_theme_linker_path(@movie, theme_linker,  type: "up"), method: "post" %>
+                <strong><%= link_to theme_linker.theme, movie_theme_linker_path(@movie, theme_linker), class: "btn btn-primary" %></strong>
+                <%= link_to "down", vote_movie_theme_linker_path(@movie, theme_linker, type: "down"), method: "post" %>
+
+
+            </p>
+            <br />
+
+
+            <% end %>
+            <% end %>
+
+
+            <% if @common_linkers.blank? %>
+            <h3>No cliche's listed yet</h3>
+            <%= link_to "add new cliche", new_movie_common_linker_path(@movie), class: "btn btn-danger" %>
+            <% else %>
+
+            <% @common_linkers.each do |common_linker| %>
+            <p class="bg-success"><strong><%= pluralize common_linker.reputation_for(:votes).to_i, "" %></strong>
+                <strong>Cliche:</strong>
+
+
+                <%= link_to "up", vote_movie_common_linker_path(@movie, common_linker,  type: "up"), method: "post" %>
+                <strong> <%= link_to common_linker.cliche, movie_common_linker_path(@movie, common_linker), class: "btn btn-success" %></strong>
+                <%= link_to "down", vote_movie_common_linker_path(@movie, common_linker, type: "down"), method: "post" %>
+            </p>
+            <br />
+
+
+            <% end %>
+            <% end %>
+
+            <% if @location_linkers.blank? %>
+            <h3>No Locations just yet.</h3>
+            <%= link_to "add new location", new_movie_location_linker_path(@movie), class: "btn btn-danger" %>
+            <% else %>
+
+            <% @location_linkers.each do |location_linker| %>
+            <p class="bg-danger"> <strong><%= pluralize location_linker.reputation_for(:votes).to_i, "" %></strong>
+                <strong>Location:</strong>
+
+
+                <%= link_to "up", vote_movie_location_linker_path(@movie, location_linker,  type: "up"), method: "post" %>
+                <strong> <%= link_to location_linker.location, movie_location_linker_path(@movie, location_linker), class: "btn btn-danger" %></strong>
+                <%= link_to "down", vote_movie_location_linker_path(@movie, location_linker, type: "down"), method: "post" %>
+
+
+            </p>
+            <br />
+
+
+            <% end %>
+            <% end %>
+
+        </div>
+    </div>
+</div>

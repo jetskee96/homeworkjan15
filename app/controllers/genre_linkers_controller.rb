@@ -10,7 +10,7 @@ class GenreLinkersController < ApplicationController
   end
 
   def show
-    @genre_linker = GenreLinker.find(params[:id])
+    @genre_linker = GenreLinker.find(params[:movie_id])
   end
 
    def vote

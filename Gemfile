@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-
-
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+gem 'rubocop', require: false
 gem 'rails', '4.1.7'
 gem 'pg'
 #gem 'sqlite3'

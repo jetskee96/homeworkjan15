@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :theme_linkers
-
+  
   devise_for :users
   resources :movies do 
     resources :genre_linkers  do 
@@ -13,7 +11,15 @@ Rails.application.routes.draw do
     resources :theme_linkers do
       member { post :vote }
       end
+        resources :location_linkers do
+      member { post :vote }
+      end
+    
+      
   end
+  get 'search', to: 'search#search'
+
+  
    root 'movies#index'
 
 

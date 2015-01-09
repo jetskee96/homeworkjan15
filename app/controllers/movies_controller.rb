@@ -9,9 +9,10 @@ class MoviesController < ApplicationController
 
 
   def show
-     @genre_linkers = GenreLinker.where(movie_id: @movie.id).order("created_at DESC")
+    @genre_linkers = GenreLinker.where(movie_id: @movie.id).order("created_at DESC")
      @common_linkers = CommonLinker.where(movie_id: @movie.id).order("created_at DESC")
     @theme_linkers = ThemeLinker.where(movie_id: @movie.id).order("created_at DESC")
+     @location_linkers = LocationLinker.where(movie_id: @movie.id).order("created_at DESC")
   end
 
 

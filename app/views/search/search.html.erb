@@ -1,0 +1,19 @@
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go", name: nil %>
+  </p>
+<% end %>
+ 
+<ul>
+  <% @genre_linkers.each do |genre_linker| %>
+    <li>
+ 
+      <%= link_to genre_linker.genre, movie_genre_linker_path(@movie, genre_linker) %>
+    
+     
+    </li>
+
+</ul
+    <% end %>

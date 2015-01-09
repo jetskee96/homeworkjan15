@@ -1,0 +1,2 @@
+module LocationLinkersHelper
+end
