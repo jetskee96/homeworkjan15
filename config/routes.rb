@@ -1,22 +1,15 @@
 Rails.application.routes.draw do
-  
   devise_for :users
+ 
   resources :movies do 
-    resources :genre_linkers  do 
+    resources :movie_genres  do 
       member { post :vote }
+      resources :movie_genre_comments, shallow: true do
+        member { post :vote }
     end
-       resources :common_linkers do
-      member { post :vote }
-      end
-    resources :theme_linkers do
-      member { post :vote }
-      end
-        resources :location_linkers do
-      member { post :vote }
-      end
-    
-      
+    end
   end
+   
   get 'search', to: 'search#search'
 
   

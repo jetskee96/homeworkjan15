@@ -11,36 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150108020221) do
+ActiveRecord::Schema.define(version: 20150120222817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "common_linkers", force: true do |t|
-    t.text     "cliche"
+  create_table "movie_genre_comments", force: true do |t|
+    t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "movie_genre_id"
     t.integer  "user_id"
-    t.integer  "movie_id"
   end
 
-  create_table "genre_linkers", force: true do |t|
-    t.text     "genre"
+  create_table "movie_genres", force: true do |t|
+    t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
     t.integer  "movie_id"
-  end
-
-  create_table "location_linkers", force: true do |t|
-    t.text     "location"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "movie_id"
   end
 
   create_table "movies", force: true do |t|
@@ -101,15 +92,6 @@ ActiveRecord::Schema.define(version: 20150108020221) do
   add_index "rs_reputations", ["reputation_name", "target_id", "target_type"], name: "index_rs_reputations_on_reputation_name_and_target", unique: true, using: :btree
   add_index "rs_reputations", ["reputation_name"], name: "index_rs_reputations_on_reputation_name", using: :btree
   add_index "rs_reputations", ["target_id", "target_type"], name: "index_rs_reputations_on_target_id_and_target_type", using: :btree
-
-  create_table "theme_linkers", force: true do |t|
-    t.text     "theme"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "movie_id"
-  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

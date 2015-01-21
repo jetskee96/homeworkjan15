@@ -1,0 +1,2 @@
+module MovieGenreCommentsHelper
+end

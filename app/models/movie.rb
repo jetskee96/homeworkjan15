@@ -1,11 +1,9 @@
 class Movie < ActiveRecord::Base
    belongs_to :user
-   has_many :genre_linkers
-   has_many :common_linkers
-   has_many :theme_linkers
-   has_many :location_linkers
+   has_many :movie_genres
+
    
-   has_attached_file :poster, styles: { medium: "400x600#" }
+   has_attached_file :poster, styles: { medium: "350x500#" }
    validates_attachment_content_type :poster, content_type: /\Aimage\/.*\Z/
    
 end

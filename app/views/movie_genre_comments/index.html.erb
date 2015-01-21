@@ -1,0 +1,27 @@
+<h1>Listing movie_genre_comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movie_genre_comments.each do |movie_genre_comment| %>
+      <tr>
+        <td><%= movie_genre_comment.title %></td>
+        <td><%= movie_genre_comment.description %></td>
+        <td><%= link_to 'Show', movie_genre_comment %></td>
+        <td><%= link_to 'Edit', edit_movie_genre_comment_path(movie_genre_comment) %></td>
+        <td><%= link_to 'Destroy', movie_genre_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

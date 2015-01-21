@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+  <div class="row">
+    <div class="col-xs-6"><strong>Movie:</strong>
+    <%= link_to @movie.title, movie_path(@movie) %></div>
+    </div>
+    <div class="row">
+    <div class="col-xs-6"><strong>Genre:</strong>
+<%= @movie_genre.title %> <span class="badge"><%= pluralize @movie_genre.reputation_for(:votes).to_i, "" %></strong></div>
+    </div>
+            <div class="row">
+    <div class="col-xs-6"> <strong>Description:</strong>
+<%= @movie_genre.description %></div>
+    </div>
+   
+
+    </div>
+            </div>
+         
+            </div>
+</div>
+<%= render 'comment' %>
+
+
+
+
+
+
