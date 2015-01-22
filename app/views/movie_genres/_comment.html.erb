@@ -1,41 +1,33 @@
 <div class="container-fluid">
   <div class="panel panel-default">
+    <table class="table table-hover">
 
-
-
-
+    <h3>Comments</h3>
+      <% @movie_genre_comments.popular.each do |movie_genre_comment| %>
+  <tr><td><strong><%= movie_genre_comment.title %></strong></td>
   
  
+  <td><%= movie_genre_comment.description %></td>
 
-  
-
- <ul class="list-group">
-  <li class="list-group-item">
-    <h3>Comments</h3>
-    <% @movie_genre_comments.each do |movie_genre_comment| %>
-    <strong><%= movie_genre_comment.title %></strong>
-  
-    <br />
-     <%= movie_genre_comment.description %>
-
-      <%= link_to vote_movie_genre_comment_path(movie_genre_comment, type: "up"), method: "post", class: "btn btn-default" do %>
+      <td><%= link_to vote_movie_genre_comment_path(movie_genre_comment, type: "up"), method: "post", class: "btn btn-default" do %>
     <i class="glyphicon glyphicon-arrow-up"></i>
-    <% end %>
+        <% end %></td>
   
-    
-    <%= link_to vote_movie_genre_comment_path(movie_genre_comment, type: "down"), method: "post", class: "btn btn-default" do %>
-    <i class="glyphicon glyphicon-arrow-down"></i><% end %>
-      <span class="badge"><%= pluralize movie_genre_comment.reputation_for(:votes).to_i, "" %></span>
-   <br />
-    </strong>
-  <% end %>
-    <h3>Add new Comment</h3>
-    
+    <td><h2><%= pluralize movie_genre_comment.reputation_for(:votes).to_i, "" %></h2></td>
+   <td> <%= link_to vote_movie_genre_comment_path(movie_genre_comment, type: "down"), method: "post", class: "btn btn-default" do %>
+     <i class="glyphicon glyphicon-arrow-down"></i><% end %></td> 
+     
 
-<%= link_to "Add new comment", new_movie_movie_genre_movie_genre_comment_path(@movie, @movie_genre) %>
-  </ul>
+   
+  <% end %>
+       
+
+<td><%= link_to "Add new comment", new_movie_movie_genre_movie_genre_comment_path(@movie, @movie_genre) %></td></tr>
+    </table>
+  </div>
 </div>
-</div>
+
+
     
                 
       

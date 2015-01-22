@@ -6,15 +6,14 @@ class MovieGenresController < ApplicationController
   respond_to :html
 
   def index
-    @movie_genres = MovieGenre.all
-    respond_with(@movie_genres)
+    @movie_genres = MovieGenre.popular
   end
 
   def show
     @movie_genre_comments = MovieGenreComment.where(movie_genre_id: @movie_genre.id)
 
   end
-  
+
      def vote
       value = params[:type] == "up" ? 1 : -1
        @movie_genre = MovieGenre.find(params[:id])

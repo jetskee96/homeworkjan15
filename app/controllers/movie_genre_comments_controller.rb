@@ -6,11 +6,13 @@ class MovieGenreCommentsController < ApplicationController
   respond_to :html
 
   def index
-    @movie_genre_comments = MovieGenreComment.all
-    respond_with(@movie_genre_comments)
+    @movie_genre_comments = MovieGenreComment.popular
+    #respond_with(@movie_genre_comments)
   end
-
+ 
+  
   def show
+    # @movie_genre_comments = MovieGenreComment.find_with_reputation(:votes, :all, order: "votes desc")
     # @movie_genre_comment = MovieGenreComment.find(params[:movie_genre_id]) This may be needed in the future
   end
   
