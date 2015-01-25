@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie_genres = MovieGenre.where(movie_id: @movie.id)
+    @movie_themes = MovieTheme.where(movie_id: @movie.id)
    # @movie_genre = MovieGenre.find(params[:movie_id])
 
   end

@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <table class="table table-hover">
+
+    <h3>Comments</h3>
+      <% @movie_theme_comments.popular.each do |movie_theme_comment| %>
+      <tr><td><strong><%= movie_theme_comment.title %></strong></td>
+  
+ 
+        <td><%= movie_theme_comment.description %></td>
+
+        <td><%= link_to vote_movie_theme_comment_path(movie_theme_comment, type: "up"), method: "post", class: "btn btn-default" do %>
+    <i class="glyphicon glyphicon-arrow-up"></i>
+        <% end %></td>
+  
+        <td><h2><%= pluralize movie_theme_comment.reputation_for(:votes).to_i, "" %></h2></td>
+        <td> <%= link_to vote_movie_theme_comment_path(movie_theme_comment, type: "down"), method: "post", class: "btn btn-default" do %>
+     <i class="glyphicon glyphicon-arrow-down"></i><% end %></td> 
+     
+
+   
+  <% end %>
+       
+
+        <td><%= link_to "Add new comment", new_movie_movie_theme_movie_theme_comment_path(@movie, @movie_theme) %></td></tr>
+    </table>
+  </div>
+</div>

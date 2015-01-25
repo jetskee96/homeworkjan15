@@ -1,0 +1,27 @@
+<h1>Listing movie_themes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movie_themes.each do |movie_theme| %>
+      <tr>
+        <td><%= movie_theme.title %></td>
+        <td><%= movie_theme.description %></td>
+        <td><%= link_to 'Show', movie_theme %></td>
+        <td><%= link_to 'Edit', edit_movie_theme_path(movie_theme) %></td>
+        <td><%= link_to 'Destroy', movie_theme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Movie theme', new_movie_theme_path %>

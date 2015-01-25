@@ -57,9 +57,11 @@ end
     def set_movie_genre_comment
       @movie_genre_comment = MovieGenreComment.find(params[:id])
     end
+  
       def set_movie
       @movie = Movie.find(params[:movie_id])
     end
+  
       def set_movie_genre
       @movie_genre = MovieGenre.find(params[:movie_genre_id])
     end

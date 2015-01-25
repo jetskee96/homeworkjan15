@@ -6,12 +6,12 @@ class MovieGenresController < ApplicationController
   respond_to :html
 
   def index
-    @movie_genres = MovieGenre.popular
+    @movie_genres = MovieGenre.all
   end
 
   def show
     @movie_genre_comments = MovieGenreComment.where(movie_genre_id: @movie_genre.id)
-
+   # @similar_themes = MovieTheme.similar_themes(@movie_theme) 
   end
 
      def vote
