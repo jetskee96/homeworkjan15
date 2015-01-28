@@ -1,10 +1,16 @@
 class SearchController < ApplicationController
+
+  
   def search
   if params[:q].nil?
-    @genre_linkers = []
+    @movie_genres = []
+    @movie_themes = []
+    @movies       = []
   else
-    @genre_linkers = GenreLinker.search params[:q]
+    @movie_genres = MovieGenre.search params[:q]
+    @movie_themes = MovieTheme.search params[:q]
+    @movies = Movie.search params[:q]
   end
 end
-  
+
 end

@@ -1,27 +1,24 @@
-<h1>Listing movie_genres</h1>
+<h1>Genre Results</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Votes</th>
       <th>Title</th>
-      <th>Description</th>
+      <th>Votes</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @movie_genres.each do |movie_genre| %>
+    <% @movie_genres.popular.each do |movie_genre| %>
       <tr>
-        <td><%= movie_genre.title %></td>
-        <td><%= movie_genre.description %></td>
-        <td><%= link_to 'Show', movie_genre %></td>
-        <td><%= link_to 'Edit', edit_movie_genre_path(movie_genre) %></td>
-        <td><%= link_to 'Destroy', movie_genre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= @movie.title %>
+        <td><%= link_to movie_genre.title, movie_movie_genre_path(@movie, movie_genre) %></td>
+        <td><%= pluralize movie_genre.reputation_for(:votes).to_i, "" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Movie genre', new_movie_genre_path %>

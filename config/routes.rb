@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/show'
-
+#  get 'users/show'
+get 'search', to: 'search#search'
   devise_for :users
 #  resources :users
   resources :movies do 
@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     member { post :vote }
   resources :movie_theme_comments, shallow: true do
     member { post :vote }
-            
+  
+  
     end
   end
 end
@@ -22,7 +23,7 @@ end
 
 
    
-  get 'search', to: 'search#search'
+ 
 
   
    root 'movies#index'

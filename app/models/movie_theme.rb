@@ -1,4 +1,7 @@
+require 'elasticsearch/model'
 class MovieTheme < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   belongs_to :user
   belongs_to :movie
   has_many :movie_theme_comments
@@ -10,4 +13,4 @@ class MovieTheme < ActiveRecord::Base
   end  
   
 end
-
+MovieTheme.import

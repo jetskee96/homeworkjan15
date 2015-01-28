@@ -1,4 +1,7 @@
+require 'elasticsearch/model'
 class MovieGenre < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   belongs_to :user
   belongs_to :movie
   has_many :movie_genre_comments
@@ -16,3 +19,4 @@ class MovieGenre < ActiveRecord::Base
  # end
 
 end
+MovieGenre.import

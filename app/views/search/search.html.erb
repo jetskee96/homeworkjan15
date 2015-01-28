@@ -1,3 +1,5 @@
+cd <h1>Search Results</h1>
+
 <%= form_for search_path, method: :get do |f| %>
   <p>
     <%= f.label "Search for" %>
@@ -6,14 +8,21 @@
   </p>
 <% end %>
  
-<ul>
-  <% @genre_linkers.each do |genre_linker| %>
-    <li>
- 
-      <%= link_to genre_linker.genre, movie_genre_linker_path(@movie, genre_linker) %>
-    
-     
-    </li>
-
-</ul
+<strong>Genres:
+<% @movie_genres.each do |movie_genre| %>
+<%= link_to movie_genre.title, movie_movie_genres_path(movie_genre.movie_id) %>
+<!-- <%= link_to movie_genre.title, movie_movie_genres_path(movie_genre.movie_id) %> -->
+  
     <% end %>
+
+<br />
+Themes:
+<% @movie_themes.each do |movie_theme| %>
+<%= link_to movie_theme.title, movie_movie_themes_path(movie_theme.movie_id) %>
+    <% end %>
+<br />
+Movies:
+<% @movies.each do |movie| %>
+  <%= link_to movie.title, movies_path(@movies) %>
+    <% end %>
+</strong>

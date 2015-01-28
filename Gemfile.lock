@@ -28,6 +28,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    ansi (1.5.0)
     arel (5.0.1.20140414130214)
     ast (2.0.0)
     astrolabe (1.3.0)
@@ -72,6 +73,7 @@ GEM
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     hashie (3.3.2)
+    hashr (0.0.22)
     hike (1.2.3)
     i18n (0.7.0)
     jbuilder (2.2.6)
@@ -87,6 +89,7 @@ GEM
     minitest (5.5.0)
     multi_json (1.10.1)
     multipart-post (2.0.0)
+    netrc (0.10.2)
     orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
@@ -122,6 +125,9 @@ GEM
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     rubocop (0.28.0)
       astrolabe (~> 1.3)
       parser (>= 2.2.0.pre.7, < 3.0)
@@ -152,6 +158,14 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    tire (0.6.2)
+      activemodel (>= 3.0)
+      activesupport
+      ansi
+      hashr (~> 0.0.19)
+      multi_json (~> 1.3)
+      rake
+      rest-client (~> 1.6)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -178,4 +192,5 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
+  tire
   turbolinks
