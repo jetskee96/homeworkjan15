@@ -32,3 +32,14 @@ body {
   
 
 }
+
+.linkers-class {
+      color: #FFFFFF;
+      &:hover {
+         color: #0000FF;
+       }
+     }
+
+.linker-row-class {
+  width: 800;
+}

@@ -1,27 +1,35 @@
-
   
-  
-  
-  
+  <div class="panel panel-default">
+<div class="container">
     <div class="container-fluid">
-        <div class="col-md-offset-4">
-         <div class="col-md-4"> <strong>Genres</strong></div>
+         <tbody>
+     <table class="table">
+         
+              <tr>
+                <div class="col-md-12"><h3>Genres</strong></h3>
+               
        <% @movie_genres.popular.each do |movie_genre| %>
-               <div class="col-md-4">  <h3><span class="label label-default"><strong>Genre:<%= link_to movie_genre.title, movie_movie_genre_path(@movie, movie_genre) %></h3></strong><strong><span class="badge"><%= pluralize movie_genre.reputation_for(:votes).to_i, "" %></strong></span></span>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_genre.title, movie_movie_genre_path(@movie, movie_genre), class: 'linkers-class' %></button> </h3></strong><strong><span class="badge"><%= pluralize movie_genre.reputation_for(:votes).to_i, "" %></strong></span></span>
                  <%= link_to "up", vote_movie_movie_genre_path(@movie, movie_genre,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_genre_path(@movie, movie_genre,  type: "down"), method: "post" %></div>
                  <% end %>
-                   <%= link_to "Add new Genre", new_movie_movie_genre_path(@movie) %>
-          <br />
-          <strong>Themes</strong>
+                   <div class="col-md-offset-8"><button type="button" class="btn btn-primary"> <%= link_to "Add new Genre", new_movie_movie_genre_path(@movie), class: 'linkers-class' %></button></div>
+     
+       </tr>
+          <tr>
+            <div class="col-md-12"><h3>Themes</h3></div>
+            <td>
           <% @movie_themes.popular.each do |movie_theme| %>
-               <div class="col-md-4">  <h3><span class="label label-default"><strong>Theme:<%= link_to movie_theme.title, movie_movie_theme_path(@movie, movie_theme) %></h3></strong><strong><span class="badge"><%= pluralize movie_theme.reputation_for(:votes).to_i, "" %></strong></span></span>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_theme.title, movie_movie_theme_path(@movie, movie_theme), class: 'linkers-class' %> </h3></strong><strong><span class="badge"><%= pluralize movie_theme.reputation_for(:votes).to_i, "" %></strong></span></span>
                  <%= link_to "up", vote_movie_movie_theme_path(@movie, movie_theme,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_theme_path(@movie, movie_theme,  type: "down"), method: "post" %></div>
+              
                  <% end %>
               
-          <%= link_to "Add new Theme", new_movie_movie_theme_path(@movie) %>
-            
-       
-           
+            <div class="col-md-offset-8"><button type="button" class="btn btn-primary"><%= link_to "Add new Theme", new_movie_movie_theme_path(@movie), class: 'linkers-class' %></button></div>
+            </td>
+  </tr>
+      
+      </table>
+   </tbody>
 
         </div>
     </div>
