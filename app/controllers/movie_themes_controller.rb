@@ -51,6 +51,12 @@ end
     @movie_theme.destroy
     respond_with(@movie_theme)
   end
+  
+#  def similar_theme
+#  @similar_themes = @movie.themes.inject({}) do |result_hash, theme|
+#    result_hash[theme.title.to_sym], theme.movies.reject {|p| p == @movie}
+#   result_hash
+#end
 
   private
     def set_movie_theme

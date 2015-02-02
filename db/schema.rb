@@ -11,10 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150124021839) do
+ActiveRecord::Schema.define(version: 20150131045559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "movie_brand_comments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_brand_id"
+  end
+
+  create_table "movie_brands", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "fictional"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+  end
+
+  create_table "movie_character_comments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_character_id"
+  end
+
+  create_table "movie_characters", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+  end
 
   create_table "movie_genre_comments", force: true do |t|
     t.string   "title"
@@ -32,6 +70,114 @@ ActiveRecord::Schema.define(version: 20150124021839) do
     t.datetime "updated_at"
     t.integer  "movie_id"
     t.integer  "user_id"
+  end
+
+  create_table "movie_goof_comments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_goof_id"
+  end
+
+  create_table "movie_goofs", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+  end
+
+  create_table "movie_location_comments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_location_id"
+  end
+
+  create_table "movie_locations", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+  end
+
+  create_table "movie_quote_comments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_quote_id"
+  end
+
+  create_table "movie_quotes", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+  end
+
+  create_table "movie_reference_comments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_reference_id"
+  end
+
+  create_table "movie_references", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+  end
+
+  create_table "movie_song_comments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_song_id"
+  end
+
+  create_table "movie_songs", force: true do |t|
+    t.string   "title"
+    t.string   "artist"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "movie_id"
+    t.integer  "user_id"
+  end
+
+  create_table "movie_technical_comments", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_technical_id"
+  end
+
+  create_table "movie_technicals", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "movie_id"
   end
 
   create_table "movie_theme_comments", force: true do |t|

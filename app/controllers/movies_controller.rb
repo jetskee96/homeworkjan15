@@ -11,6 +11,14 @@ class MoviesController < ApplicationController
   def show
     @movie_genres = MovieGenre.where(movie_id: @movie.id)
     @movie_themes = MovieTheme.where(movie_id: @movie.id)
+    @movie_locations = MovieLocation.where(movie_id: @movie.id)
+    @movie_characters = MovieCharacter.where(movie_id: @movie.id)
+    @movie_brands = MovieBrand.where(movie_id: @movie.id)
+    @movie_goofs = MovieGoof.where(movie_id: @movie.id)
+    @movie_references = MovieReference.where(movie_id: @movie.id)
+    @movie_songs = MovieSong.where(movie_id: @movie.id)
+    @movie_technicals = MovieTechnical.where(movie_id: @movie.id)
+    @movie_quotes = MovieQuote.where(movie_id: @movie.id)
    # @movie_genre = MovieGenre.find(params[:movie_id])
 
   end

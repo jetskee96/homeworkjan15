@@ -32,3 +32,10 @@ body {
   
 
 }
+
+.linkers-class {
+  color: #FFFFFF;
+  &:hover {
+  color: #0000FF;
+ }
+}

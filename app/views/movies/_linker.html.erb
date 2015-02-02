@@ -1,22 +1,137 @@
+  <div class="panel panel-default">
+    <div class="container">
+      <div class="container-fluid">
+        <tbody>
+          <table class="table">
+                      <div class="btn-group">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    <strong>Add More</strong><span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><%= link_to "Add Genre", new_movie_movie_genre_path(@movie) %></li>
+    <li><%= link_to "Add Location", new_movie_movie_location_path(@movie) %></li>
+    <li><%= link_to "Add Theme", new_movie_movie_theme_path(@movie) %></li>
+    <li><%= link_to "Add Brand", new_movie_movie_brand_path(@movie) %></li>
+    <li><%= link_to "Add Character", new_movie_movie_character_path(@movie) %></li>
+    <li><%= link_to "Add Goof", new_movie_movie_goof_path(@movie) %></li>
+    <li><%= link_to "Add Reference", new_movie_movie_reference_path(@movie) %></li>
+    <li><%= link_to "Add Song", new_movie_movie_song_path(@movie) %></li>
+    <li><%= link_to "Add Technical", new_movie_movie_technical_path(@movie) %></li>
+    <li><%= link_to "Add Quote", new_movie_movie_quote_path(@movie) %></li>
+    <li class="divider"></li>
+    <li><a href="#">Some crap here</a></li>
+  </ul>
+</div>
+         <tr>
+         <div class="col-md-12"><h3>Genres</strong></h3>
 
-    <div class="container-fluid">
-        <div class="col-md-offset-4">
 
        <% @movie_genres.popular.each do |movie_genre| %>
-               <div class="col-md-4">  <h3><span class="label label-default"><strong>Genre:<%= link_to movie_genre.title, movie_movie_genre_path(@movie, movie_genre) %></h3></strong><strong><span class="badge"><%= pluralize movie_genre.reputation_for(:votes).to_i, "" %></strong></span></span>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_genre.title, movie_movie_genre_path(@movie, movie_genre), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_genre.reputation_for(:votes).to_i, "" %></strong></span></span>
                  <%= link_to "up", vote_movie_movie_genre_path(@movie, movie_genre,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_genre_path(@movie, movie_genre,  type: "down"), method: "post" %></div>
                  <% end %>
-                   
-          
+                   </tr>
+                   <tr>
+                   <div class="col-md-12"><h3>Themes</strong></h3>
+                    <td>
           <% @movie_themes.popular.each do |movie_theme| %>
-               <div class="col-md-4">  <h3><span class="label label-default"><strong>Theme:<%= link_to movie_theme.title, movie_movie_theme_path(@movie, movie_theme) %></h3></strong><strong><span class="badge"><%= pluralize movie_theme.reputation_for(:votes).to_i, "" %></strong></span></span>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_theme.title, movie_movie_theme_path(@movie, movie_theme), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_theme.reputation_for(:votes).to_i, "" %></strong></span></span>
                  <%= link_to "up", vote_movie_movie_theme_path(@movie, movie_theme,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_theme_path(@movie, movie_theme,  type: "down"), method: "post" %></div>
                  <% end %>
+
+                </tr>
+                   <tr>
+                  
+                    <td>
+                       <div class="col-md-12"><h3>Locations</strong></h3>
+                    <% @movie_locations.popular.each do |movie_location| %>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_location.title, movie_movie_location_path(@movie, movie_location), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_location.reputation_for(:votes).to_i, "" %></strong></span></span>
+                 <%= link_to "up", vote_movie_movie_location_path(@movie, movie_location,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_location_path(@movie, movie_location,  type: "down"), method: "post" %></div>
+                 <% end %>
+                  </tr>
+                  </td>
+                   <tr>
+                   
+                    <td>
+<div class="col-md-12"><h3>Characters</strong></h3>
+          <% @movie_characters.popular.each do |movie_character| %>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_character.name, movie_movie_character_path(@movie, movie_character), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_character.reputation_for(:votes).to_i, "" %></strong></span></span>
+                 <%= link_to "up", vote_movie_movie_character_path(@movie, movie_character,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_character_path(@movie, movie_character,  type: "down"), method: "post" %></div>
+                 <% end %>
+                  </tr>
+        </td>
+                   <tr>
+                   
+                    <td>
+<div class="col-md-12"><h3>Brands</strong></h3>
+          <% @movie_brands.popular.each do |movie_brand| %>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_brand.title, movie_movie_brand_path(@movie, movie_brand), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_brand.reputation_for(:votes).to_i, "" %></strong></span></span>
+                 <%= link_to "up", vote_movie_movie_brand_path(@movie, movie_brand,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_brand_path(@movie, movie_brand,  type: "down"), method: "post" %></div>
+                 <% end %>
+              
+                  </tr>
+        </td>
+                   <tr>
+                   
+                    <td>
+<div class="col-md-12"><h3>Goofs</strong></h3>
+                    <% @movie_goofs.popular.each do |movie_goof| %>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_goof.title, movie_movie_goof_path(@movie, movie_goof), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_goof.reputation_for(:votes).to_i, "" %></strong></span></span>
+                 <%= link_to "up", vote_movie_movie_goof_path(@movie, movie_goof,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_goof_path(@movie, movie_goof,  type: "down"), method: "post" %></div>
+                 <% end %>
+                                                  </tr>
+        </td>
+                   <tr>
+                   
+                    <td>
+<div class="col-md-12"><h3>References</strong></h3>
+          <% @movie_references.popular.each do |movie_reference| %>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_reference.title, movie_movie_reference_path(@movie, movie_reference), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_reference.reputation_for(:votes).to_i, "" %></strong></span></span>
+                 <%= link_to "up", vote_movie_movie_reference_path(@movie, movie_reference,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_reference_path(@movie, movie_reference,  type: "down"), method: "post" %></div>
+                 <% end %>
+                      
+                                        </tr>
+        </td>
+                   <tr>
+                   
+                    <td>
+<div class="col-md-12"><h3>Songs</strong></h3>
             
-           
-          <%= link_to "Add new Theme", new_movie_movie_theme_path(@movie) %>
-           
-<%= link_to "Add new Genre", new_movie_movie_genre_path(@movie) %>
+                    <% @movie_songs.popular.each do |movie_song| %>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_song.title, movie_movie_song_path(@movie, movie_song), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_song.reputation_for(:votes).to_i, "" %></strong></span></span>
+                 <%= link_to "up", vote_movie_movie_song_path(@movie, movie_song,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_song_path(@movie, movie_song,  type: "down"), method: "post" %></div>
+                 <% end %>
+                                        </tr>
+        </td>
+                   <tr>
+                   
+                    <td>
+<div class="col-md-12"><h3>Technical</strong></h3>
+          
+          <% @movie_technicals.popular.each do |movie_technical| %>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_technical.title, movie_movie_technical_path(@movie, movie_technical), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_technical.reputation_for(:votes).to_i, "" %></strong></span></span>
+                 <%= link_to "up", vote_movie_movie_technical_path(@movie, movie_technical,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_technical_path(@movie, movie_technical,  type: "down"), method: "post" %></div>
+                 <% end %>
+                                        </tr>
+        </td>
+                   <tr>
+                   
+                    <td>
+<div class="col-md-12"><h3>Quotes</strong></h3>
+            
+          <% @movie_quotes.popular.each do |movie_quote| %>
+               <div class="col-md-4">  <h3><span class="label label-default"><strong><%= link_to movie_quote.title, movie_movie_quote_path(@movie, movie_quote), class: 'linkers-class' %></h3></strong><strong><span class="badge"><%= pluralize movie_quote.reputation_for(:votes).to_i, "" %></strong></span></span>
+                 <%= link_to "up", vote_movie_movie_quote_path(@movie, movie_quote,  type: "up"), method: "post" %>  <%= link_to "down", vote_movie_movie_quote_path(@movie, movie_quote,  type: "down"), method: "post" %></div>
+                 <% end %>
+
+          </table>
+       </tbody>
+    </div>
+  </div>
+</div>
+
+          
+
         </div>
     </div>
 </div>

@@ -1,11 +1,10 @@
-
 <div class="panel panel-default">
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-4">
-         <%= image_tag @movie.poster.url(:medium) %>
-
-        <div class="table-responsive">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"><%= image_tag @movie.poster.url(:medium) %>
+    </div>
+    
+    <div class="col-md-8">  <div class="table-responsive">
           <table class="table">
             <tbody>
               <tr>
@@ -33,11 +32,14 @@
               
             </tbody>
           </table>
-            
-        </div>
+     
       </div>
-  <%= render 'linker' %>
+        </div>
+    </div>
+  </div>
+</div>
 
+   <%= render 'linker' %>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 

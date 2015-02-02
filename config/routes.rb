@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show'
+
 
   devise_for :users
 #  resources :users
@@ -14,12 +14,69 @@ Rails.application.routes.draw do
     member { post :vote }
   resources :movie_theme_comments, shallow: true do
     member { post :vote }
+  end
+end
+    
+      resources :movie_locations do 
+    member { post :vote }
+  resources :movie_location_comments, shallow: true do
+    member { post :vote }
             
     end
   end
+
+
+resources :movie_characters do 
+    member { post :vote }
+  resources :movie_character_comments, shallow: true do
+    member { post :vote }
+  end
+end
+    
+resources :movie_brands do 
+    member { post :vote }
+  resources :movie_brand_comments, shallow: true do
+    member { post :vote }
+            
+    end
+  end
+
+resources :movie_goofs do 
+    member { post :vote }
+  resources :movie_goof_comments, shallow: true do
+    member { post :vote }
+  end
+end
+    
+resources :movie_references do 
+    member { post :vote }
+  resources :movie_reference_comments, shallow: true do
+    member { post :vote }
+  end
+end
+
+resources :movie_songs do 
+    member { post :vote }
+  resources :movie_song_comments, shallow: true do
+    member { post :vote }
+  end
+end
+resources :movie_technicals do 
+    member { post :vote }
+  resources :movie_technical_comments, shallow: true do
+    member { post :vote }
+  end
+end
+
+resources :movie_quotes do 
+    member { post :vote }
+  resources :movie_quote_comments, shallow: true do
+    member { post :vote }
+  end
 end
       
-
+      
+end
 
    
   get 'search', to: 'search#search'
